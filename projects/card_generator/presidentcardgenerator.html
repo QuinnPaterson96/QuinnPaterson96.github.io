@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>President Event Cards</title>
+    <style>
+        /* Card Container Grid */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* Card Style */
+        .card {
+            width: 200px;
+            height: 300px;
+            border-radius: 8px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            color: black;
+            position: relative;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Card Header with Event Name */
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Decision Sections */
+        .decision-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        /* Decision Name */
+        .decision-name {
+            font-weight: bold;
+            font-size: 12px;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        /* Reform Direction */
+        .reform-direction {
+            font-size: 12px;
+            color: #333;
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        /* Decision Effect */
+        .decision-effect {
+            font-size: 12px;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        /* Decision Cost */
+        .enactment-cost {
+            font-size: 12px;
+            text-align: center;
+            color: #555;
+        }
+
+        /* Failure Cost */
+        .failure-cost {
+            font-size: 12px;
+            font-style: italic;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Print Styling */
+        @media print {
+            body {
+                display: flex;
+                justify-content: center;
+                margin: 0;
+                padding: 0;
+            }
+            .card-container {
+                display: grid;
+                grid-template-columns: repeat(3, 200px);
+                grid-template-rows: repeat(2, 300px);
+                gap: 15px;
+                width: 650px;
+                margin: 0 auto;
+                padding: 20px;
+                page-break-after: always;
+            }
+            .card {
+                width: 200px;
+                height: 300px;
+                border: 1px solid #ddd;
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container" id="card-container">
+        <!-- Cards will be inserted here -->
+    </div>
+
+    <script>
+        async function loadCSV(file) {
+            const response = await fetch(file);
+            const data = await response.text();
+            const events = parseCSV(data);
+            displayCards(events);
+        }
+
+        function parseCSV(data) {
+            // Parse CSV using PapaParse
+            const parsed = Papa.parse(data, {
+                header: true,
+                skipEmptyLines: true
+            });
+
+            // Group rows by Event Name
+            const events = {};
+            parsed.data.forEach(row => {
+                const eventName = row['Event Name'];
+                if (!events[eventName]) {
+                    events[eventName] = {
+                        eventName: eventName,
+                        failureCost: row['Enactment Failure Cost'],
+                        decisions: []
+                    };
+                }
+                events[eventName].decisions.push({
+                    decisionName: row['Decision Name'],
+                    reformDirection: row['Reform Direction'],
+                    enactmentCost: row['Enactment Cost'],
+                    decisionEffects: row['Decision Effects']
+                });
+            });
+            return Object.values(events);
+        }
+
+        function displayCards(events) {
+            const container = document.getElementById('card-container');
+            container.innerHTML = '';
+
+            events.forEach(event => {
+                const cardDiv = document.createElement('div');
+                cardDiv.className = 'card';
+
+                // Event Card Structure
+                cardDiv.innerHTML = `
+                    <div class="card-title">${event.eventName}</div>
+                    ${event.decisions.map(decision => `
+                        <div class="decision-section">
+                            <div class="decision-name">${decision.decisionName}</div>
+                            <div class="reform-direction">Reform: ${decision.reformDirection}</div>
+                            <div class="decision-effect">${decision.decisionEffects}</div>
+                            <div class="enactment-cost">Cost: ${decision.enactmentCost}</div>
+                        </div>
+                    `).join('')}
+                    <div class="failure-cost">Failure Cost: ${event.failureCost}</div>
+                `;
+                container.appendChild(cardDiv);
+            });
+        }
+
+        loadCSV('presidentcards.csv');
+    </script>
+</body>
+</html>

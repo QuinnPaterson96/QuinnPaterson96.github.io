@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Generator</title>
+    <style>
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            width: 200px;
+            height: 300px;
+            border-radius: 8px;
+            padding: 10px;
+            color: black;
+            position: relative;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Ministry Background Colors */
+        .card.military { background-color: #34495e; }
+        .card.police { background-color: #2980b9; }
+        .card.economy { background-color: #27ae60; }
+        .card.civil-service { background-color: #e67e22; }
+
+        /* Title and Value Section */
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: bold;
+            max-width: 75%;
+            text-align: left;
+        }
+
+        .card-value {
+            font-size: 18px;
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: black;
+            border-radius: 50%;
+            border-color: black;
+            background-color: gray;
+            border: 2px;
+            padding: 5px;
+            width: 35px;
+            height: 35px;
+            text-align: center;
+            line-height: 25px;
+        }
+
+        /* Ministry Label */
+        .card-ministry {
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        /* Image Placeholder */
+        .card-image {
+            background-color: rgba(255, 255, 255, 0.1);
+            height: 100px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* Effect Description */
+        .card-effect {
+            font-size: 14px;
+            line-height: 1.4;
+            margin-top: 10px;
+        }
+
+        /* Stability Limit */
+        .card-stability {
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        @media print {
+        .card.military { background-color: #34495e !important; }
+        .card.police { background-color: #2980b9 !important; }
+        .card.economy { background-color: #27ae60 !important; }
+        .card.civil-service { background-color: #e67e22 !important; }
+
+        body {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 200px); /* Three columns */
+            grid-template-rows: repeat(2, 300px); /* Two rows */
+            gap: 15px;
+            width: 650px; /* Ensures the grid width fits three cards with gap */
+            margin: 0 auto;
+            padding: 20px;
+            page-break-after: always; /* Adds a page break after each set of 6 cards */
+        }
+
+        .card {
+            width: 170px;
+            height: 270px;
+            border-radius: 8px;
+            padding: 10px;
+            color: black;
+            position: relative;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            page-break-inside: avoid; /* Ensures cards stay whole on the page */
+            background-color: white; /* Default background color */
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="card-container" id="card-container">
+        <!-- Cards will be inserted here -->
+    </div>
+
+    <script>
+        async function loadCSV(file) {
+            const response = await fetch(file);
+            const data = await response.text();
+            const cards = parseCSV(data);
+            displayCards(cards);
+        }
+
+            function parseCSV(data) {
+            // Use PapaParse to parse CSV data with proper handling for commas within quotes
+            const parsed = Papa.parse(data, {
+                header: true,        // Treat first row as header
+                skipEmptyLines: true // Skip empty rows
+            });
+
+            // If there are parsing errors, log them
+            if (parsed.errors.length > 0) {
+                console.error("Parsing errors:", parsed.errors);
+            }
+
+            // Process each row in parsed data to create card objects
+            return parsed.data.map(row => ({
+                title: row['Card Name'] || '',
+                value: row['Value'] || '',
+                institution: row['Institution'] || '',
+                effect: row['Card Effect'] || '',
+                stabilityLimit: row['Stability Limitations'] || '',
+            }));
+        }
+
+
+        function displayCards(cards) {
+            const container = document.getElementById('card-container');
+            container.innerHTML = '';
+
+            cards.forEach(card => {
+                const cardDiv = document.createElement('div');
+                cardDiv.className = `card ${card.institution}`;
+
+                cardDiv.innerHTML = `
+                    <div class="card-header">
+                        <div class="card-title">${card.title}</div>
+                        <div class="card-value">${card.value}</div>
+                    </div>
+                    <div class="card-ministry">${capitalize(card.institution)}</div>
+                    <div class="card-image">Image Placeholder</div>
+                    <div class="card-effect">${card.effect}</div>
+                    ${card.stabilityLimit ? `<div class="card-stability">Stability Limit: ${card.stabilityLimit}</div>` : ''}
+                `;
+                
+            switch (card.institution.toLowerCase().replace(' ', '-')) {
+                case 'military':
+                    cardDiv.classList.add('military');
+                    break;
+                case 'police':
+                    cardDiv.classList.add('police');
+                    break;
+                case 'economy':
+                    cardDiv.classList.add('economy');
+                    break;
+                case 'civil-service':
+                    cardDiv.classList.add('civil-service');
+                    break;
+                default:
+                    cardDiv.style.backgroundColor = '#ffffff'; // Default color if no match
+                    break;
+            }
+                container.appendChild(cardDiv);
+            });
+        }
+
+
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1).replace('-', ' ');
+        }
+
+        loadCSV('cabinetcards.csv');
+    </script>
+</body>
+</html>
