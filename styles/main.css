@@ -34,3 +34,18 @@ section {
 .project {
     margin-bottom: 1.5rem;
 }
+
+@keyframes flash {
+    0% {
+        background-color: #f0f8ff; /* Light blue background */
+    }
+    100% {
+        background-color: transparent;
+        border: none;
+    }
+}
+
+/* Highlight the targeted section briefly */
+section:target {
+    animation: flash 10s ease;
+}

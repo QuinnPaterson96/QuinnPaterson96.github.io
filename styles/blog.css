@@ -1,0 +1,25 @@
+#blog {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+}
+
+.blog-post {
+    margin-bottom: 20px;
+}
+
+.blog-post h3 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.blog-date {
+    font-size: 0.9em;
+    color: #999;
+}
+
+.blog-post p {
+    font-size: 1em;
+    color: #666;
+}
