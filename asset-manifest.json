@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/quinnsite/static/css/main.23ba5f91.css",
+    "main.js": "/quinnsite/static/js/main.95f3abe4.js",
+    "static/js/453.a0c5ec18.chunk.js": "/quinnsite/static/js/453.a0c5ec18.chunk.js",
+    "index.html": "/quinnsite/index.html",
+    "main.23ba5f91.css.map": "/quinnsite/static/css/main.23ba5f91.css.map",
+    "main.95f3abe4.js.map": "/quinnsite/static/js/main.95f3abe4.js.map",
+    "453.a0c5ec18.chunk.js.map": "/quinnsite/static/js/453.a0c5ec18.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.23ba5f91.css",
+    "static/js/main.95f3abe4.js"
+  ]
+}
