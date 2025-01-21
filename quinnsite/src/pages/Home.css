@@ -50,6 +50,10 @@ section:target {
     animation: flash 10s ease;
 }
 
+section.highlight {
+    animation: flash 10s ease;
+}
+
 .image-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
