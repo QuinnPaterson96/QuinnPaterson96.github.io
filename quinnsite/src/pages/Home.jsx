@@ -1,61 +1,95 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './Home.css';
+import { Link as RouterLink } from 'react-router-dom';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
 import Navbar from '../components/Navbar';
 import Header from '../components/Header';
+import './Home.css';
+import '../styles/global.css';
 
 const Home = () => {
     return (
-        <div id="root">
-            <Header/>
+        <Container>
+            <Header />
             <Navbar />
 
-            <section id="about">
-                <h2>About Me</h2>
-                <p>Hi, I'm Quinn! I'm a passionate software developer with extensive experience in test automation and embedded development, 
-                    as well as some hands-on experience in AI, web development, app development, and more. 
-                    I'm currently open to opportunities that allow me to apply my skills, as well as those that encourage me to grow in new areas.</p>
-            </section>
+            <Box component="section" id="about" sx={{ marginTop: '2rem' }}>
+                <Typography variant="h2" component="h2" sx={{ marginBottom: '1rem' }}>
+                    About Me
+                </Typography>
+                <Typography variant="body1" component="p">
+                    Hi, I'm Quinn! I'm a software developer passionate about solving real-world problems 
+                    in areas like medical technology, construction, finance, logistics, and beyond. 
+                    I bring extensive experience in test automation and embedded development, 
+                    with additional hands-on knowledge in AI, web development, and app development. 
+                    I'm eager to tackle your toughest challenges and contribute to meaningful solutions. 
+                    
+                    Currently open to opportunities that allow me to apply my skills and grow 
+                    in exciting new directions.
+                </Typography>
+            </Box>
 
-            <section id="projects">
-                <h2>Projects</h2>
-                <div className="project">
-                    <h3>Project: Spontaniius</h3>
-                    <p>Spontaniius is an app designed to facilitate impromptu meetups, allowing users to quickly create events and broadcast them to others nearby. 
+            <Box component="section" id="projects" sx={{ marginTop: '2rem' }}>
+                <Typography variant="h2" component="h2" sx={{ marginBottom: '1rem' }}>
+                    Projects
+                </Typography>
+                <Box className="project" sx={{ marginBottom: '1.5rem' }}>
+                    <Typography variant="h3" component="h3" sx={{ marginBottom: '0.5rem' }}>
+                        Project: Spontaniius
+                    </Typography>
+                    <Typography variant="body1" component="p">
+                        Spontaniius is an app designed to facilitate impromptu meetups, allowing users to quickly create events and broadcast them to others nearby. 
                         This was my first attempt at building a complete application with entrepreneurial potential. 
                         After testing with a few users, I found that scaling it would be challenging, especially with my move to a new city. 
-                        Ultimately, I decided to retire the project, but it was a valuable learning experience.</p>
-                    <a href="https://github.com/QuinnPaterson96/Spontaniius">Spontaniius Repo</a>
-                </div>
-
-                <div className="project">
-                    <h3>Project: Reformer tabletop game</h3>
-                    <p>
+                        Ultimately, I decided to retire the project, but it was a valuable learning experience.
+                    </Typography>
+                    <Link href="https://github.com/QuinnPaterson96/Spontaniius" target="_blank" rel="noopener">
+                        Spontaniius Repo
+                    </Link>
+                </Box>
+                <Box className="project" sx={{ marginBottom: '1.5rem' }}>
+                    <Typography variant="h3" component="h3" sx={{ marginBottom: '0.5rem' }}>
+                        Project: Reformer tabletop game
+                    </Typography>
+                    <Typography variant="body1" component="p">
                         While working on a tabletop game recently I thought it might be nice to use HTML to try and 
                         demo out some looks for the playing cards of the game. I'd used Excel for designing the cards, and had the realizaiton 
                         that HTML and Javascript could be used to quickly get an idea of what they would look like, in addition to providing me somthing to
                         print (and that could also therefore be used to easily iterate on cards as I got more feeback)
                         
-                        An example of what this looks like
-                    </p>
-                    <a href="projects/card_generator/cabinetcardgenerator.html">Reformer Cabinet Cards</a>
-                    <a href="projects/card_generator/presidentcardgenerator.html">Reformer President Cards</a>
-                    <p>
-                        Also, for developing this boardgame I worked with ChatGPT, if you're curious about the experience you can read more at my blog section
-                    </p>
-                    <a href="blog.html#boardgame"> How I Used ChatGPT to Help Me Design a Board Game</a>
-                </div>
-            </section>
+                        An example of what this looks like</Typography>
+                    <Link href="projects/card_generator/cabinetcardgenerator.html" target="_blank" rel="noopener">
+                        Cabinet Cards
+                    </Link>
+                    <Link href="projects/card_generator/presidentcardgenerator.html" target="_blank" rel="noopener">
+                        President Cards
+                    </Link>
+                    <Typography variant="body1" component="p">
+                        Also, for developing this boardgame I worked with ChatGPT, if you're curious about 
+                        the experience you can read more at my blog section
+                    </Typography>
+                    <Link href="/blog" target="_blank" rel="noopener">How I Used ChatGPT to Help Me Design a Board Game</Link>
+                    
+                </Box>
+            </Box>
 
-            <section id="contact">
-                <h2>Contact</h2>
-                <p>Interested in working together? Reach out to me on <a href="https://www.linkedin.com/in/quinn-paterson-694656123">LinkedIn</a> or <a href="mailto:quinnpaterson1996@gmail.com">email me</a>.</p>
-            </section>
+            <Box component="section" id="contact" sx={{ marginTop: '2rem' }}>
+                <Typography variant="h2" component="h2" sx={{ marginBottom: '1rem' }}>
+                    Contact
+                </Typography>
+                <Typography variant="body1" component="p">
+                    Interested in working together? Reach out to me on <Link href="https://www.linkedin.com/in/quinn-paterson-694656123" target="_blank" rel="noopener">LinkedIn</Link> or <Link href="mailto:quinnpaterson1996@gmail.com">email me</Link>.
+                </Typography>
+            </Box>
 
-            <footer>
-                <p>© 2024 Quinn</p>
-            </footer>
-        </div>
+            <Box component="footer" sx={{ textAlign: 'center', padding: '1rem', backgroundColor: '#333', color: 'white', marginTop: '2rem' }}>
+                <Typography variant="body1" component="p">
+                    © 2024 Quinn
+                </Typography>
+            </Box>
+        </Container>
     );
 };
 

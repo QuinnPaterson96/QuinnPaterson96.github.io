@@ -1,15 +1,15 @@
-h2 {
+html h2 {
     font-size: 1.7em;
     margin-bottom: 20px;
 }
 
-h3 {
+html h3 {
     font-size: 1.5em;
     margin-bottom: 10px;
     color: #444;
 }
 
-h4 {
+html h4 {
     font-size: 1.3em;
     margin-bottom: 10px;
     color: #444;
