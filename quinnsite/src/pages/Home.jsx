@@ -51,27 +51,37 @@ const Home = () => {
                 </Box>
                 <Box className="project" sx={{ marginBottom: '1.5rem' }}>
                     <Typography variant="h3" component="h3" sx={{ marginBottom: '0.5rem' }}>
-                        Project: Reformer tabletop game
+                        Project: Reformer Tabletop Game
                     </Typography>
                     <Typography variant="body1" component="p">
-                        While working on a tabletop game recently I thought it might be nice to use HTML to try and 
-                        demo out some looks for the playing cards of the game. I'd used Excel for designing the cards, and had the realizaiton 
-                        that HTML and Javascript could be used to quickly get an idea of what they would look like, in addition to providing me somthing to
-                        print (and that could also therefore be used to easily iterate on cards as I got more feeback)
+                        While working on a tabletop game recently, I thought it might be nice to use HTML to try and 
+                        demo out some looks for the playing cards of the game. I'd used Excel for designing the cards and had the realization 
+                        that HTML and JavaScript could be used to quickly get an idea of what they would look like, in addition to providing me something to
+                        print (and that could also therefore be used to easily iterate on cards as I got more feedback).
                         
-                        An example of what this looks like</Typography>
-                    <Link href="projects/card_generator/cabinetcardgenerator.html" target="_blank" rel="noopener">
-                        Cabinet Cards
-                    </Link>
-                    <Link href="projects/card_generator/presidentcardgenerator.html" target="_blank" rel="noopener">
-                        President Cards
-                    </Link>
-                    <Typography variant="body1" component="p">
-                        Also, for developing this boardgame I worked with ChatGPT, if you're curious about 
-                        the experience you can read more at my blog section
+                        An example of what this looks like:
                     </Typography>
-                    <Link href="/blog" target="_blank" rel="noopener">How I Used ChatGPT to Help Me Design a Board Game</Link>
-                    
+                    <br/>
+                    <Link href="/images/reformer_cards/CabinetCards.png" rel="noopener">
+                        {'>'} Cabinet Cards
+                    </Link>
+                    <br/>
+                    <Link href="/images/reformer_cards/PresidentCards.png" rel="noopener">
+                        {'>'} President Cards
+                    </Link>
+                    <br/>
+                    <br/>
+                    <Typography variant="body1" component="p">
+                        Also, for developing this board game, I worked with ChatGPT. If you're curious about 
+                        the experience, you can read more in my blog section.
+                    </Typography>
+                    <br/>
+                    <Link href="/#/blog" rel="noopener" sx={{
+                    display: 'block',
+                    overflowX: 'hidden',
+                    wordBreak: 'break-word',
+                    whiteSpace: 'normal',
+                    }}>How I Used ChatGPT to Help Me Design a Board Game</Link>
                 </Box>
             </Box>
 
@@ -80,7 +90,22 @@ const Home = () => {
                     Contact
                 </Typography>
                 <Typography variant="body1" component="p">
-                    Interested in working together? Reach out to me on <Link href="https://www.linkedin.com/in/quinn-paterson-694656123" target="_blank" rel="noopener">LinkedIn</Link> or <Link href="mailto:quinnpaterson1996@gmail.com">email me</Link>.
+                    Interested in working together? Reach out to me on{' '}
+                    <Link
+                        href="https://www.linkedin.com/in/quinn-paterson-694656123"
+                        target="_blank"
+                        rel="noopener"
+                        sx={{margin: '0px' }} // Adjust spacing here
+                    >
+                        LinkedIn
+                    </Link>
+                    {' '}or{' '}
+                    <Link
+                        href="mailto:quinnpaterson1996@gmail.com"
+                        sx={{margin: '0px' }}
+                    >
+                        email me
+                    </Link>.
                 </Typography>
             </Box>
 
