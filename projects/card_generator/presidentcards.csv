@@ -1,10 +1,10 @@
 Event Name,Decision Name,Enactment Cost,Enactment Failure Cost,Decision Effects,Reform Direction
 Economic Downturn,Revitalize State Owned Exterprise,13,-1 Stability,"+1 Economy, +1 Civil Service",Communist
-Economic Downturn,Deregulate Market,7,-1 Stability,"+2 Economy, -1 Stability",Capitalist
+Economic Downturn,Deregulate Market,7,-1 Stability,"+2 Economy",Capitalist
 Worker Uprising,Raise Worker Wages,13,-1 Stability,"-1 Economy, +1 Civil",Communist
 Worker Uprising,Breakup Strikes,7,-1 Stability,+1 Police,Capitalist
 Infrastructure Collapse,Redirect Economy To Repairs,13,-1 Stability,"+1 Civil Service, -1 Economy",Communist
-Infrastructure Collapse,Invite Foreign Investment,7,-1 Stability,"+1 Economy, -1 stability",Capitalist
+Infrastructure Collapse,Invite Foreign Investment,7,-1 Stability,"+1 Economy",Capitalist
 Natural Disaster,Military Relief Effort,16,-1 Stability,"+1 Stability, -1 Economy, +1 Military",Communist
 Natural Disaster,Foreign Aid,7,-1 Stability,"+1 Economy, -1 Police",Capitalist
 Rising Nationalism,Direct them To Military Service,9,-1 Stability,"+2 Military, -1 Civil Service",Communist
@@ -12,24 +12,24 @@ Rising Nationalism,Increase Public Works,14,-1 Stability,"-1 Military, +1 Civil 
 Protests against foreign ownership,Reign in Foreign Investment,8,-1 Stability,-1 Economy,Communist
 Protests against foreign ownership,Crack Down on Protests,14,-1 Stability,"Police +1, Military +1",Capitalist
 Budget Crisis,Cut Military Spending,11,-2 Stability,"-2 Military, +1 Economy",Capitalist
-Budget Crisis,Raise ConsumptionTaxes,12,-2 Stability,"-1 Economy, -1 Stability",Communist
+Budget Crisis,Raise ConsumptionTaxes,12,-2 Stability,"-1 Economy",Communist
 Social Unrest,Police Crackdown,14,-2 Stability,"+2 Police, -1 Economy",Communist
 Social Unrest,Promote Public Welfare,8,-2 Stability,"+1 Civil Service, -1 Police",Capitalist
 Border Tensions,Increase Defense Budget,12,-2 Stability,"+1 Military, -1 Economy, +1 Stability",Communist
 Border Tensions,Open Diplomatic Talks,15,-2 Stability,"-1 Stability, -1 Military, +1 Civil Service, +1 Economy",Capitalist
-Judical Reform,Side With Police,14,-2 Stability,"+1 Police, -1 Civil Service, -1 Stability",Communist
+Judical Reform,Side With Police,14,-2 Stability,"+1 Police, -1 Civil Service",Communist
 Judical Reform,Side with the judges,8,-2 Stability,"+1 Civil Service, +1 Stability",Capitalist
-Political Dissent,Increase Surveillance,10,-2 Stability,"+2 Police, -1 Stability",Communist
+Political Dissent,Increase Surveillance,10,-2 Stability,"+2 Police",Communist
 Political Dissent,Offer Economic Incentives,14,-2 Stability,"+1 Stability, +1 Economy, -1 Police",Capitalist
 Budgetary Hole,Accept Debt Relief,12,-2 Stability,"+1 Economy, -1 Police -1 Civil Service",Communist
-Budgetary Hole,Cut Social Programs,14,-2 Stability,"+1 Economy, -1 Stability, -1 Civil Service",Capitalist
-Food Shortage,Ration Supplies,8,-3 Stability,"-1 Stability, -1 Economy, +1 Police, +1 Civil Service",Communist
+Budgetary Hole,Cut Social Programs,14,-2 Stability,"+1 Economy, -1 Civil Service",Capitalist
+Food Shortage,Ration Supplies,8,-3 Stability,"-1 Economy, +1 Police, +1 Civil Service",Communist
 Food Shortage,Import Food Supplies,14,-3 Stability," +1 Stability, +2 Economy",Capitalist
 Education Reform,Universal Education,10,-3 Stability,"=+1 Civil Service, -1 Economy, +1 Stability",Communist
-Education Reform,Privatize Education,15,-3 Stability,"=+2 Economy, -1 Stability",Capitalist
+Education Reform,Privatize Education,15,-3 Stability,"=+1 Economy, -1 Civil Service",Capitalist
 Foreign Investor Corruption Scandal,Preserve Foreign Ties,18,-3 Stability,-1 Stability,Capitalist
 Foreign Investor Corruption Scandal,Kick out Foreign investers,10,-3 Stability,-3 Economy,Communist
 Government Corruption Scandal,Suppress All Coverage,18,-3 Stability,"-1 Economy, -1 Military, -1 Civil Service, -1 Police",Communist
-Government Corruption Scandal,Launch Investigation,10,-3 Stability,"+1 Police, -1 Stability",Capitalist
+Government Corruption Scandal,Launch Investigation,10,-3 Stability,"+1 Police",Capitalist
 The Great Stagnation,Radical Interal Reform,18,-3 Stability,"+1 Economy, +1 Stability, +1 Military, +1 Civil Service, +1 Police",Communist
 The Great Stagnation,Import Foreign Experts,10,-3 Stability,"+1 Economy, -1 Civil Service",Capitalist
