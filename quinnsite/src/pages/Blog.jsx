@@ -16,7 +16,6 @@ const Blog = () => {
                 <h2>Blog</h2>
                 <div className="blog-post">
                     <h3 id="boardgame">How I Used ChatGPT to Help Me Design a Board Game</h3>
-                    <p className="blog-date">Nov 18, 2024</p>
                 
                     <h4>Background</h4>
                     <p>
