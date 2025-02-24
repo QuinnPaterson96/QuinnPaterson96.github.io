@@ -14,6 +14,108 @@ const Blog = () => {
 
             <section id="blog">
                 <h2>Blog</h2>
+
+                <div className="blog-post">
+                <h3 id="technical-debt">Technical Debt and Reviving a 4-Year-Old Application</h3>
+            
+                <h4>Background</h4>
+                <p>
+                    Four years ago, while still in university, I set out to build a social app called <strong>Spontaniius</strong>, 
+                    hoping to take it to market. It was an ambitious project and a great learning experience, but life got in the way. 
+                    Shortly after launching, I moved from Vancouver to Montreal, started a new job, and eventually put the project on the 
+                    back burner—until it faded into the background.
+                </p>
+                <p>
+                    Now, four years later, I've decided to take another shot at reviving it. Here's what I've learned so far.
+                </p>
+
+                <h4>Software Erodes</h4>
+                <p>
+                    If you leave an Android application untouched for four years, it <em>will</em> break.
+                </p>
+                <ul>
+                    <li>Permissions that once worked? <strong>Deprecated.</strong></li>
+                    <li>Android namespace rules? <strong>Changed.</strong></li>
+                    <li>Plugins I relied on? <strong>No longer supported.</strong></li>
+                </ul>
+                <p>
+                    The first few days felt like a scavenger hunt through broken dependencies and outdated frameworks.
+                </p>
+
+                <h4>You Are the New Employee</h4>
+                <p>
+                    Having previously worked with unsupported legacy software, it's interesting to do the same with software 
+                    that you yourself wrote. Four years is a long time—so the ability to “just know” where things are is 
+                    <em>kind of gone</em>. 
+                </p>
+                <p>
+                    As such, I found myself leaning on the same things one would hope for when working with legacy software: 
+                    <strong>structure and documentation.</strong>
+                </p>
+                <p>
+                    The structure of my application made bringing it back to life a bit more difficult. I developed this app with 
+                    some other students at a time when none of us had much professional experience building an Android application. 
+                    Monolithic architecture, hard coding, and poor navigation handling made reading the old code challenging.
+                </p>
+                <p>
+                    That said, it's nice to see how much I've grown over the last four years. 
+                </p>
+                <p>
+                    One thing I was particularly <strong>grateful</strong> for, however, was documentation. My past self had kept things well documented, 
+                    which proved incredibly useful in figuring out how things originally worked. Even though the code itself wasn't ideal, 
+                    it was relatively easy to get a handle on existing APIs and database structures.
+                </p>
+
+                <h4>Fixing vs. Rebuilding Code</h4>
+                <p>
+                    One of the biggest challenges in reviving an old project is deciding what to <strong>fix</strong> versus what to <strong>rebuild</strong>.
+                </p>
+                <p>
+                    With technical debt and loose ends everywhere, some components were simply too difficult to patch. More importantly, I knew 
+                    that maintaining the app in the future would be even harder if I only applied quick fixes rather than making fundamental improvements.
+                </p>
+                <p>
+                    So, rather than jumping straight into debugging, I took a <strong>step back to the architecture level</strong>. 
+                    I evaluated whether a fix was sustainable or if a rebuild was the better approach—and more often than not, I leaned toward rebuilding.
+                </p>
+                <p>This led to key improvements, including:</p>
+                <ul>
+                    <li><strong>Redesigning API endpoints</strong> for long-term sustainability</li>
+                    <li><strong>Refactoring into MVVM architecture</strong> for better performance and readability</li>
+                    <li><strong>Breaking down monolithic components</strong> to improve maintainability</li>
+                </ul>
+
+                <h4>The Joys of Automated Testing</h4>
+                <p>
+                    I've been writing automated tests for years, and it's always been rewarding to automate systems. 
+                    That said, the benefit can sometimes feel a bit abstract when writing tests against <em>functioning</em> code.
+                </p>
+                <p>
+                    Writing tests for my own app, however, provided a hands-on demonstration of why it matters.
+                </p>
+                <p>
+                    Given that I was making major structural changes on both the front and back end—often switching entire frameworks—each step 
+                    introduced a potential series of issues. This is where automated testing shined.
+                </p>
+                <p>
+                    By introducing test coverage, I was able to move much more quickly through various refactorings while having a safety net 
+                    to catch regressions. Instead of a chaotic debugging process, tests provided a structured, efficient workflow.
+                </p>
+
+                <h4>The Plan to Relaunch</h4>
+                <p>
+                    I'm excited to get <strong>Spontaniius</strong> back on people's phones soon, and I'm grateful for everything this process has taught me. 
+                    Hopefully, this time around, it'll gain more traction. Expect another post when it's live!
+                </p>
+                <p>
+                    In the meantime, this is your reminder to <strong>go revisit your old projects</strong>—you'll be surprised how much they can teach you.
+                </p>
+                <p>
+                    Thanks for reading! Do you have any old projects you've revived or learned from? It'd be cool to hear about them!
+                </p>
+            </div>
+
+
                 <div className="blog-post">
                     <h3 id="boardgame">How I Used ChatGPT to Help Me Design a Board Game</h3>
                 
