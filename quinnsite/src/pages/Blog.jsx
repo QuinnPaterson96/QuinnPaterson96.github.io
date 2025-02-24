@@ -12,7 +12,7 @@ const Blog = () => {
              <Header/>
              <Navbar />
 
-            <section id="blog">
+            <section className="blog">
                 <h2>Blog</h2>
 
                 <div className="blog-post">
@@ -114,6 +114,8 @@ const Blog = () => {
                     Thanks for reading! Do you have any old projects you've revived or learned from? It'd be cool to hear about them!
                 </p>
             </div>
+        </section>
+        <section className="blog">
 
 
                 <div className="blog-post">
