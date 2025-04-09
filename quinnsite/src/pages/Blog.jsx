@@ -119,7 +119,7 @@ const Blog = () => {
 
 
                 <div className="blog-post">
-                    <h3 id="boardgame">How I Used ChatGPT to Help Me Design a Board Game</h3>
+                    <h3 id="desigining-a-boardgame-with-chat-gpt">How I Used ChatGPT to Help Me Design a Board Game</h3>
                 
                     <h4>Background</h4>
                     <p>
