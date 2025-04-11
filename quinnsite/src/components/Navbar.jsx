@@ -55,10 +55,10 @@ const Navbar = () => {
                 onClose={() => setBlogAnchorEl(null)}
               >
                 <MenuItem component={Link} to="/blog/reviving-app" onClick={() => setBlogAnchorEl(null)}>
-                  Reviving App
+                  Reviving A 5 Year Old Android App
                 </MenuItem>
                 <MenuItem component={Link} to="/blog/chatgpt-boardgame" onClick={() => setBlogAnchorEl(null)}>
-                  Board Game Design
+                    Using ChatGPT for Boardgame Design
                 </MenuItem>
               </Menu>
 
@@ -123,12 +123,12 @@ const Navbar = () => {
 
             <ListItem disablePadding>
               <ListItemButton component={Link} to="/blog/reviving-app">
-                <ListItemText primary="Blog: Reviving App" />
+                <ListItemText primary="Blog: Reviving A 5 Year Old Android App" />
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
               <ListItemButton component={Link} to="/blog/chatgpt-boardgame">
-                <ListItemText primary="Blog: Board Game Design" />
+                <ListItemText primary="Blog: Using ChatGPT in boardgame-design" />
               </ListItemButton>
             </ListItem>
 
