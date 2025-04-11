@@ -15,11 +15,6 @@ html h4 {
     color: #444;
 }
 
-#root > div > div {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
 p {
     font-size: 1.1em;
     line-height: 1.8;
@@ -32,3 +27,31 @@ a {
     white-space: normal; /* Ensure text wraps to the next line */
     text-overflow: ellipsis; /* Optional: For truncated links */
   }
+
+
+  /* Styling for image grids in blog */
+  .blog-image-grid-wrapper {
+    margin: 2rem; /* Adds top & bottom spacing */
+  }
+  
+  .blog-image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    justify-content: center;
+    align-items: start;
+  }
+  
+  .blog-image-grid img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+  }
+  
+  .blog-image-grid img:hover {
+    transform: scale(1.02);
+  }
+  
