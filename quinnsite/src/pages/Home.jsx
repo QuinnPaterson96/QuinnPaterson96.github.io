@@ -57,8 +57,8 @@ const Home = () => {
                         <Typography variant="body1" component="p">
                             Hi, I'm Quinn! I'm a software developer passionate about solving real-world problems
                             in areas like medical technology, construction, finance, logistics, and beyond.
-                            I bring extensive experience in test automation and embedded development,
-                            with additional hands-on knowledge in AI, web development, and app development.
+                            I bring extensive experience in test automation and mobile development,
+                            with additional hands-on knowledge in AI, web development, and embedded development.
                             I'm eager to tackle your toughest challenges and contribute to meaningful solutions.
 
                             Currently open to opportunities that allow me to apply my skills and grow
