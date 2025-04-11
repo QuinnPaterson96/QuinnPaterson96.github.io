@@ -110,23 +110,54 @@ const Navbar = () => {
                 </Toolbar>
             </AppBar>
 
-            {/* Hamburger Menu Drawer */}
+          {/* Hamburger Menu Drawer */}
             <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
-                <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
-                    <List>
-                        <ListItem disablePadding>
-                            <ListItemButton component={Link} to="/#projects" onClick={() => handleNavigation('/#projects')}>
-                                <ListItemText primary="Projects" />
-                            </ListItemButton>
-                        </ListItem>
-                        <ListItem disablePadding>
-                            <ListItemButton component={Link} to="/#contact" onClick={() => handleNavigation('/#contact')}>
-                                <ListItemText primary="Contact" />
-                            </ListItemButton>
-                        </ListItem>
-                    </List>
+            <Box
+                sx={{ width: 250 }}
+                role="presentation"
+                onClick={toggleDrawer(false)}
+                onKeyDown={toggleDrawer(false)}
+            >
+                <List>
+                <ListItem disablePadding>
+                    <ListItemButton component={Link} to="/#projects" onClick={() => handleNavigation('/#projects')}>
+                    <ListItemText primary="Projects" />
+                    </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                    <ListItemButton component={Link} to="/#contact" onClick={() => handleNavigation('/#contact')}>
+                    <ListItemText primary="Contact" />
+                    </ListItemButton>
+                </ListItem>
+                </List>
+
+                <Box sx={{ borderTop: '1px solid #ccc', marginTop: 2, paddingTop: 1, paddingX: 2 }}>
+                <List subheader={<Typography variant="subtitle2">Connect With Me</Typography>}>
+                    <ListItem disablePadding>
+                    <ListItemButton component="a" href="https://www.linkedin.com/in/quinn-paterson-694656123" target="_blank">
+                        <ListItemText primary="LinkedIn" />
+                    </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                    <ListItemButton component="a" href="mailto:quinnpaterson1996@gmail.com">
+                        <ListItemText primary="Email" />
+                    </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                    <ListItemButton component="a" href="https://github.com/QuinnPaterson96" target="_blank">
+                        <ListItemText primary="GitHub" />
+                    </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                    <ListItemButton component={Link} to="/resume">
+                        <ListItemText primary="View Resume" />
+                    </ListItemButton>
+                    </ListItem>
+                </List>
                 </Box>
+            </Box>
             </Drawer>
+
         </>
     );
 };

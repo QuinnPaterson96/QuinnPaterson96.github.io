@@ -46,7 +46,7 @@ const Home = () => {
                 <Navbar />
             </Box>
   
-            <Box sx={{ flex: 1, maxWidth: '1200px', margin: '0 auto', paddingTop: { xs: '180px', md: '220px' }  }}>
+            <Box sx={{ flex: 1, maxWidth: '1200px', margin: '0 auto', paddingTop: { xs: '220px', md: '220px' }  }}>
                 <Container>
               
 
@@ -155,35 +155,6 @@ const Home = () => {
                         <Typography variant="body2" sx={{ marginTop: '1rem', display: 'block' }}>View Resume</Typography>
                     </Link>
                 </Box>
-            )}
-
-            {/* Mobile Drawer */}
-            {isMobile && (
-                <>
-                    <IconButton
-                        sx={{ position: 'fixed', top: 10, right: 10, zIndex: 2000 }}
-                        onClick={toggleDrawer(true)}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
-                        <Box sx={{ width: 250, padding: '1rem' }}>
-                            <Typography variant="h6">Contact</Typography>
-                            <Link href="https://www.linkedin.com/in/quinn-paterson-694656123" target="_blank" rel="noopener">
-                                <IconButton><LinkedInIcon /></IconButton>
-                            </Link>
-                            <Link href="mailto:quinnpaterson1996@gmail.com">
-                                <IconButton><EmailIcon /></IconButton>
-                            </Link>
-                            <Link href="https://github.com/QuinnPaterson96" target="_blank" rel="noopener">
-                                <IconButton><GitHubIcon /></IconButton>
-                            </Link>
-                            <Link component={RouterLink} to="/resume">
-                                <Typography variant="body2" sx={{ marginTop: '1rem', display: 'block' }}>View Resume</Typography>
-                            </Link>
-                        </Box>
-                    </Drawer>
-                </>
             )}
         </Box>
     );
