@@ -1,28 +1,21 @@
+// src/components/Navbar.jsx
+
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
+import {
+  AppBar, Toolbar, Typography, Button, Box, IconButton,
+  Drawer, List, ListItem, ListItemButton, ListItemText, CssBaseline,
+  Divider, Menu, MenuItem
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [projectsAnchorEl, setProjectsAnchorEl] = useState(null);
+  const [blogAnchorEl, setBlogAnchorEl] = useState(null);
   const navigate = useNavigate();
 
   const handleNavigation = (path) => {
@@ -42,57 +35,47 @@ const Navbar = () => {
 
   const toggleDrawer = (open) => () => setDrawerOpen(open);
 
-  const handleProjectsMenu = (event) => setAnchorEl(event.currentTarget);
-  const handleProjectsClose = () => setAnchorEl(null);
-
   return (
     <>
       <CssBaseline />
-      <AppBar position="static" sx={{ overflowX: 'hidden' }}>
-        <Toolbar
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            paddingX: 2,
-          }}
-        >
-          <Box
-            sx={{
-              display: 'flex',
-              flexWrap: 'nowrap',
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: 2,
-            }}
-          >
+      <AppBar position="static">
+        <Toolbar sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', px: 2 }}>
+          <Box sx={{ display: 'flex', flexWrap: 'nowrap', justifyContent: 'center', alignItems: 'center', gap: 2 }}>
             <Button color="inherit" component={Link} to="/#about" onClick={() => handleNavigation('/#about')}>
               About Me
             </Button>
-            <Button color="inherit" component={Link} to="/resume">
-              Resume
-            </Button>
-            <Button color="inherit" component={Link} to="/blog">
-              Blog
-            </Button>
+            <Button color="inherit" component={Link} to="/resume">Resume</Button>
 
-            {/* Desktop-only Project dropdown */}
+            {/* Blog Dropdown */}
             <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
-              <Button color="inherit" onClick={handleProjectsMenu}>
-                Projects
-              </Button>
+              <Button color="inherit" onClick={(e) => setBlogAnchorEl(e.currentTarget)}>Blog</Button>
               <Menu
-                anchorEl={anchorEl}
-                open={Boolean(anchorEl)}
-                onClose={handleProjectsClose}
+                anchorEl={blogAnchorEl}
+                open={Boolean(blogAnchorEl)}
+                onClose={() => setBlogAnchorEl(null)}
               >
-                <MenuItem onClick={handleProjectsClose} component={Link} to="/#projects">
+                <MenuItem component={Link} to="/blog/reviving-app" onClick={() => setBlogAnchorEl(null)}>
+                  Reviving App
+                </MenuItem>
+                <MenuItem component={Link} to="/blog/chatgpt-boardgame" onClick={() => setBlogAnchorEl(null)}>
+                  Board Game Design
+                </MenuItem>
+              </Menu>
+
+              {/* Projects Dropdown */}
+              <Button color="inherit" onClick={(e) => setProjectsAnchorEl(e.currentTarget)}>Projects</Button>
+              <Menu
+                anchorEl={projectsAnchorEl}
+                open={Boolean(projectsAnchorEl)}
+                onClose={() => setProjectsAnchorEl(null)}
+              >
+                <MenuItem component={Link} to="/#projects" onClick={() => setProjectsAnchorEl(null)}>
                   Project Overview
                 </MenuItem>
-                <MenuItem onClick={handleProjectsClose} component={Link} to="/reformer">
+                <MenuItem component={Link} to="/reformer" onClick={() => setProjectsAnchorEl(null)}>
                   Reformer
                 </MenuItem>
-                <MenuItem onClick={handleProjectsClose} component={Link} to="/war-for-the-wasteland">
+                <MenuItem component={Link} to="/war-for-the-wasteland" onClick={() => setProjectsAnchorEl(null)}>
                   War for the Wasteland
                 </MenuItem>
               </Menu>
@@ -103,17 +86,13 @@ const Navbar = () => {
             </Box>
           </Box>
 
-          {/* Mobile hamburger */}
+          {/* Mobile Hamburger */}
           <IconButton
             edge="end"
             color="inherit"
             aria-label="menu"
             onClick={toggleDrawer(true)}
-            sx={{
-              display: { xs: 'block', md: 'none' },
-              position: 'absolute',
-              right: 16,
-            }}
+            sx={{ display: { xs: 'block', md: 'none' }, position: 'absolute', right: 16 }}
           >
             <MenuIcon />
           </IconButton>
@@ -122,7 +101,7 @@ const Navbar = () => {
 
       {/* Mobile Drawer */}
       <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
-        <Box sx={{ width: 250, paddingTop: 2 }} role="presentation" onClick={toggleDrawer(false)}>
+        <Box sx={{ width: 250, pt: 2 }} role="presentation" onClick={toggleDrawer(false)}>
           <List>
             <ListItem disablePadding>
               <ListItemButton component={Link} to="/#projects" onClick={() => handleNavigation('/#projects')}>
@@ -139,11 +118,35 @@ const Navbar = () => {
                 <ListItemText primary="War for the Wasteland" />
               </ListItemButton>
             </ListItem>
-          </List>
 
-          <Divider sx={{ marginY: 2 }} />
+            <Divider sx={{ my: 2 }} />
 
-          <List subheader={<Typography variant="subtitle2" sx={{ pl: 2 }}>Connect With Me</Typography>}>
+            <ListItem disablePadding>
+              <ListItemButton component={Link} to="/blog/reviving-app">
+                <ListItemText primary="Blog: Reviving App" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton component={Link} to="/blog/chatgpt-boardgame">
+                <ListItemText primary="Blog: Board Game Design" />
+              </ListItemButton>
+            </ListItem>
+
+            <Divider sx={{ my: 2 }} />
+
+            <ListItem disablePadding>
+              <ListItemButton component={Link} to="/resume">
+                <ListItemText primary="Resume" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton component={Link} to="/#contact" onClick={() => handleNavigation('/#contact')}>
+                <ListItemText primary="Contact" />
+              </ListItemButton>
+            </ListItem>
+
+            <Divider sx={{ my: 2 }} />
+
             <ListItem disablePadding>
               <ListItemButton component="a" href="https://www.linkedin.com/in/quinn-paterson-694656123" target="_blank">
                 <LinkedInIcon sx={{ mr: 1 }} />
@@ -160,11 +163,6 @@ const Navbar = () => {
               <ListItemButton component="a" href="https://github.com/QuinnPaterson96" target="_blank">
                 <GitHubIcon sx={{ mr: 1 }} />
                 <ListItemText primary="GitHub" />
-              </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-              <ListItemButton component={Link} to="/resume">
-                <ListItemText primary="View Resume" />
               </ListItemButton>
             </ListItem>
           </List>
