@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Typography, Link, useMediaQuery, Dialog, DialogContent, IconButton } from '@mui/material';
+import { Box, Typography, Link, useMediaQuery, Dialog, DialogContent, IconButton, Divider } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import Navbar from '../components/Navbar';
 import Header from '../components/Header';
@@ -34,8 +34,12 @@ const WarForTheWasteland = () => {
             </Box>
 
             <Box sx={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem' }}>
-                <Typography variant="h3" component="h1" sx={{ marginBottom: '1.5rem' }}>
+                <Typography variant="h3" component="h1" sx={{ marginBottom: '0.5rem' }}>
                     War for the Wasteland – Strategic Deckbuilding Mayhem
+                </Typography>
+
+                <Typography variant="subtitle1" sx={{ marginBottom: '2rem', color: 'gray' }}>
+                    *Currently in early prototype — help shape its evolution by playtesting or sharing feedback!*
                 </Typography>
 
                 <Box
@@ -69,7 +73,7 @@ const WarForTheWasteland = () => {
                                 alt="Unit Cards"
                                 style={{ width: '100%', maxWidth: '1000px', borderRadius: '8px' }}
                             />
-                            <Typography variant="caption" display="block" align="center" sx={{ marginBottom: '1rem' }}>
+                            <Typography variant="h6" display="block" align="center" sx={{ marginBottom: '1rem' }}>
                                 Unit Cards (Click to expand)
                             </Typography>
                         </Box>
@@ -80,12 +84,14 @@ const WarForTheWasteland = () => {
                                 alt="Base Cards"
                                 style={{ width: '100%', maxWidth: '1000px', borderRadius: '8px' }}
                             />
-                            <Typography variant="caption" display="block" align="center" sx={{ marginBottom: '1rem' }}>
+                            <Typography variant="h6" display="block" align="center" sx={{ marginBottom: '1rem' }}>
                                 Base Cards (Click to expand)
                             </Typography>
                         </Box>
                     </Box>
                 </Box>
+
+                <Divider sx={{ marginY: '2rem' }} />
 
                 {/* Showcase Individual Cards */}
                 <Box
@@ -94,14 +100,16 @@ const WarForTheWasteland = () => {
                         justifyContent: 'center',
                         gap: '2rem',
                         flexWrap: 'wrap',
-                        marginTop: '3rem',
+                        marginTop: '2rem',
                         marginBottom: '3rem'
                     }}
                 >
-                    <img src="/images/war_for_the_wasteland/unit-card-1.PNG" alt="Unit Card 1" style={{ maxWidth: '140px', borderRadius: '6px' }} />
-                    <img src="/images/war_for_the_wasteland/unit-card-2.PNG" alt="Unit Card 2" style={{ maxWidth: '140px', borderRadius: '6px' }} />
-                    <img src="/images/war_for_the_wasteland/unit-card-3.PNG" alt="Unit Card 3" style={{ maxWidth: '140px', borderRadius: '6px' }} />
+                    <img src="/images/war_for_the_wasteland/unit-card-1.PNG" alt="Unit Card 1" style={{ maxWidth: '120px', borderRadius: '6px' }} />
+                    <img src="/images/war_for_the_wasteland/unit-card-2.PNG" alt="Unit Card 2" style={{ maxWidth: '120px', borderRadius: '6px' }} />
+                    <img src="/images/war_for_the_wasteland/unit-card-3.PNG" alt="Unit Card 3" style={{ maxWidth: '120px', borderRadius: '6px' }} />
                 </Box>
+
+                <Divider sx={{ marginY: '2rem' }} />
 
                 {/* Game Board */}
                 <Box sx={{ marginBottom: '3rem' }}>
@@ -128,17 +136,36 @@ const WarForTheWasteland = () => {
                     Rulebook
                 </Typography>
                 <Typography variant="body1" component="p">
-                    You can view the current War for the Wasteland rulebook as a downloadable DOCX below:
+                    You can view the current War for the Wasteland rulebook as a downloadable PDF below:
                 </Typography>
                 <Box sx={{ marginTop: '1rem', textAlign: 'center' }}>
                     <Link
-                        href="/images/war_for_the_wasteland/War For The Wasteland Game.docx"
+                        href="/assets/War For The Wasteland Game.pdf"
                         target="_blank"
                         rel="noopener"
                         sx={{ fontWeight: 'bold', fontSize: '1.1rem' }}
                     >
-                        View Rulebook (DOCX)
+                        View Rulebook (PDF)
                     </Link>
+                </Box>
+
+                <Divider sx={{ marginY: '2rem' }} />
+
+                <Box sx={{ textAlign: 'center', marginTop: '3rem' }}>
+                    <Typography variant="body1">
+                        Want to try this game or share feedback?
+                    </Typography>
+                    <Typography variant="body2">
+                        Reach out via{' '}
+                        <Link href="https://www.linkedin.com/in/quinn-paterson-694656123" target="_blank" rel="noopener">
+                            LinkedIn
+                        </Link>{' '}
+                        or{' '}
+                        <Link href="mailto:quinnpaterson1996@gmail.com">
+                            Email
+                        </Link>
+                        .
+                    </Typography>
                 </Box>
             </Box>
 
@@ -156,8 +183,8 @@ const WarForTheWasteland = () => {
                             alt="Expanded view"
                             style={{
                                 width: '100%',
-                                height: '120%',
-                                maxWidth: '600px',
+                                height: 'auto',
+                                maxWidth: '1200px',
                                 display: 'block',
                                 margin: '0 auto'
                             }}
