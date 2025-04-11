@@ -9,6 +9,8 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import './styles/global.css';
 import ScrollToTop from './components/ScrollToTop';
+import RevivingApp from './pages/blog/RevivingApp';
+import ChatGPTBoardGame from './pages/blog/ChatGPTBoardgame';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/reviving-app" element={<RevivingApp />} />
+          <Route path="/blog/chatgpt-boardgame" element={<ChatGPTBoardGame />} />
           <Route path="/reformer" element={<Reformer />} />
           <Route path="/war-for-the-wasteland" element={<WarForTheWasteland/>} />
 
