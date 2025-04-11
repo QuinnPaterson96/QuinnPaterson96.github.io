@@ -8,10 +8,12 @@ import WarForTheWasteland from './pages/WarForTheWasteland';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import './styles/global.css';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Box className="App" sx={{ padding: 0 }}>
         <CssBaseline />
         <Routes>
