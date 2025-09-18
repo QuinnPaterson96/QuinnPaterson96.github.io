@@ -22,6 +22,7 @@ import '../styles/global.css';
 import SpontaniiusSection from '../components/projectSections/SpontaniiusSection';
 import ReformerSection from '../components/projectSections/ReformerSection';
 import WarForTheWastelandSection from '../components/projectSections/WarForTheWastelandSection';
+import NomineatsSection from '../components/projectSections/NomineatsSection';
 
 const Home = () => {
     const isMobile = useMediaQuery('(max-width:900px)');
@@ -97,6 +98,15 @@ const Home = () => {
                                 <WarForTheWastelandSection />
                             </AccordionDetails>
                         </Accordion>
+                        <Accordion>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                                <Typography variant="h5">Nomineats Resturant Reviews</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <NomineatsSection />
+                            </AccordionDetails>
+                        </Accordion>
+
                     </Box>
                     <Box component="section" id="contact" sx={{ marginTop: '4rem', borderTop: '1px solid #ddd', paddingTop: '2rem' }}>
                         <Typography variant="h2" component="h2" sx={{ marginBottom: '1rem' }}>

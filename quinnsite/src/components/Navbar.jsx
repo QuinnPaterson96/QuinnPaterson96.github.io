@@ -78,6 +78,9 @@ const Navbar = () => {
                 <MenuItem component={Link} to="/war-for-the-wasteland" onClick={() => setProjectsAnchorEl(null)}>
                   War for the Wasteland
                 </MenuItem>
+                <MenuItem component={Link} to="/nomineats" onClick={() => setProjectsAnchorEl(null)}>
+                  Nomineats
+                </MenuItem>
               </Menu>
 
               <Button color="inherit" component={Link} to="/#contact" onClick={() => handleNavigation('/#contact')}>

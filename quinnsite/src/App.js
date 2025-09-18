@@ -11,6 +11,7 @@ import './styles/global.css';
 import ScrollToTop from './components/ScrollToTop';
 import RevivingApp from './pages/blog/RevivingApp';
 import ChatGPTBoardGame from './pages/blog/ChatGPTBoardgame';
+import Nomineats from './pages/Nomineats';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/blog/chatgpt-boardgame" element={<ChatGPTBoardGame />} />
           <Route path="/reformer" element={<Reformer />} />
           <Route path="/war-for-the-wasteland" element={<WarForTheWasteland/>} />
+          <Route path="/nomineats" element={<Nomineats/>} />
 
 
         </Routes>
