@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/quinnsite/static/css/main.f6e44f29.css",
-    "main.js": "/quinnsite/static/js/main.3ab8c582.js",
-    "static/js/453.a0c5ec18.chunk.js": "/quinnsite/static/js/453.a0c5ec18.chunk.js",
-    "index.html": "/quinnsite/index.html",
-    "main.f6e44f29.css.map": "/quinnsite/static/css/main.f6e44f29.css.map",
-    "main.3ab8c582.js.map": "/quinnsite/static/js/main.3ab8c582.js.map",
-    "453.a0c5ec18.chunk.js.map": "/quinnsite/static/js/453.a0c5ec18.chunk.js.map"
+    "main.css": "/static/css/main.f6e44f29.css",
+    "main.js": "/static/js/main.165e329e.js",
+    "static/js/453.a0c5ec18.chunk.js": "/static/js/453.a0c5ec18.chunk.js",
+    "index.html": "/index.html",
+    "main.f6e44f29.css.map": "/static/css/main.f6e44f29.css.map",
+    "main.165e329e.js.map": "/static/js/main.165e329e.js.map",
+    "453.a0c5ec18.chunk.js.map": "/static/js/453.a0c5ec18.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f6e44f29.css",
-    "static/js/main.3ab8c582.js"
+    "static/js/main.165e329e.js"
   ]
 }
