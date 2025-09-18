@@ -2,7 +2,7 @@
   "name": "quinnsite",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://quinnpaterson96.github.io",
+  "homepage": "https://quinnpaterson96.github.io/",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",

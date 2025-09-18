@@ -100,7 +100,7 @@ const Home = () => {
                         </Accordion>
                         <Accordion>
                             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                                <Typography variant="h5">Nomineats Resturant Reviews</Typography>
+                                <Typography variant="h5">Nomineats: Resturant Review Website</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                                 <NomineatsSection />

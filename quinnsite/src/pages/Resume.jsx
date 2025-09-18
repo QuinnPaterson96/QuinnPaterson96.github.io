@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Header from '../components/Header';
-import { Tabs, Tab, Box, Typography, Divider, useMediaQuery } from '@mui/material';
+import { Tabs, Tab, Box, Typography, Divider, IconButton, Tooltip } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import Link from '@mui/material/Link';
+import DownloadIcon from '@mui/icons-material/Download';
 
 const resumeLinks = {
   'test-automation': 'https://docs.google.com/document/d/1IGWifsYTgv4rszNUmSIAVfMBE9ve75wKcyl861TTAi0/preview',
@@ -23,14 +26,14 @@ const resumeOptions = [
 const Resume = () => {
   const [selectedResume, setSelectedResume] = useState('test-automation');
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('md')); // >=960px
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));   // >= md
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));   // <= md
 
-  const handleChange = (event, newValue) => {
-    setSelectedResume(newValue);
-  };
+  const handleChange = (event, newValue) => setSelectedResume(newValue);
 
   const currentLink = resumeLinks[selectedResume];
   const downloadLink = currentLink.replace('/preview', '/export?format=pdf');
+  const label = resumeOptions.find((o) => o.value === selectedResume)?.label;
 
   return (
     <div id="root">
@@ -65,30 +68,44 @@ const Resume = () => {
 
         {/* Resume Viewer */}
         <Box sx={{ flexGrow: 1, p: 2 }}>
-          <Box sx={{ height: '800px', mb: 2 }}>
-            <iframe
-              title={`${selectedResume} resume`}
-              src={currentLink}
-              width="100%"
-              height="100%"
-              style={{ border: 'none' }}
-            >
-              <p>
-                Your browser does not support iframes.{' '}
-                <a href={downloadLink} download="QuinnPatersonResume.pdf">
-                  Download the resume here.
-                </a>
-              </p>
-            </iframe>
+          {/* Header row with download button */}
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 1 }}>
+            <Tooltip title={`Download ${label} Resume`}>
+              <IconButton
+                component="a"
+                href={downloadLink}
+                download="QuinnPatersonResume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <DownloadIcon />
+              </IconButton>
+            </Tooltip>
+          </Box>
+
+          {/* Iframe or mobile fallback */}
+          <Box sx={{ height: '800px' }}>
+            {isMobile ? (
+              <Box textAlign="center" sx={{ my: 2 }}>
+                <Typography variant="body2" sx={{ mb: 1 }}>
+                  Viewing on mobile? Open the resume in Google Docs:
+                </Typography>
+                <Link href={currentLink} target="_blank" rel="noopener">
+                  Open Resume
+                </Link>
+              </Box>
+            ) : (
+              <iframe
+                title={`${selectedResume} resume`}
+                src={currentLink}
+                width="100%"
+                height="800px"
+                style={{ border: 'none' }}
+              />
+            )}
           </Box>
 
           <Divider sx={{ my: 3 }} />
-
-          <Box textAlign="center">
-            <a href={downloadLink} download="QuinnPatersonResume.pdf">
-              Download {resumeOptions.find((o) => o.value === selectedResume)?.label} Resume
-            </a>
-          </Box>
         </Box>
       </Box>
     </div>
