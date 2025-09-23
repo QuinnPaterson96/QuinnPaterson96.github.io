@@ -1,11 +1,22 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Header from '../components/Header';
-import { Tabs, Tab, Box, Typography, Divider, IconButton, Tooltip } from '@mui/material';
+import {
+  Tabs,
+  Tab,
+  Box,
+  Typography,
+  Divider,
+  IconButton,
+  Tooltip,
+  Menu,
+  MenuItem,
+} from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Link from '@mui/material/Link';
 import DownloadIcon from '@mui/icons-material/Download';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const resumeLinks = {
   'test-automation': 'https://docs.google.com/document/d/1IGWifsYTgv4rszNUmSIAVfMBE9ve75wKcyl861TTAi0/preview',
@@ -15,9 +26,11 @@ const resumeLinks = {
   'analyst': 'https://docs.google.com/document/d/10KzSEgo3NKxAPic00MRLs1iUOpWDvCzJ-N_e799LiYQ/preview',
 };
 
-const resumeOptions = [
+const primaryResumes = [
   { label: 'Test Automation', value: 'test-automation' },
   { label: 'Full Stack', value: 'full-stack' },
+];
+const secondaryResumes = [
   { label: 'Mobile Development', value: 'mobile' },
   { label: 'Embedded', value: 'embedded' },
   { label: 'Analyst', value: 'analyst' },
@@ -26,14 +39,28 @@ const resumeOptions = [
 const Resume = () => {
   const [selectedResume, setSelectedResume] = useState('test-automation');
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));   // >= md
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));   // <= md
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-  const handleChange = (event, newValue) => setSelectedResume(newValue);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const menuOpen = Boolean(anchorEl);
+
+  const handleChange = (event, newValue) => {
+    if (newValue !== 'more') {
+      setSelectedResume(newValue);
+    }
+  };
+
+  const handleMenuOpen = (event) => setAnchorEl(event.currentTarget);
+  const handleMenuClose = (value) => {
+    setAnchorEl(null);
+    if (value) setSelectedResume(value);
+  };
 
   const currentLink = resumeLinks[selectedResume];
   const downloadLink = currentLink.replace('/preview', '/export?format=pdf');
-  const label = resumeOptions.find((o) => o.value === selectedResume)?.label;
+  const label =
+    [...primaryResumes, ...secondaryResumes].find((o) => o.value === selectedResume)?.label;
 
   return (
     <div id="root">
@@ -55,15 +82,42 @@ const Resume = () => {
           </Typography>
           <Tabs
             orientation={isDesktop ? 'vertical' : 'horizontal'}
-            value={selectedResume}
+            value={
+              primaryResumes.find((r) => r.value === selectedResume)
+                ? selectedResume
+                : 'more'
+            }
             onChange={handleChange}
             variant="fullWidth"
             centered={!isDesktop}
           >
-            {resumeOptions.map((option) => (
+            {primaryResumes.map((option) => (
               <Tab key={option.value} label={option.label} value={option.value} />
             ))}
+            <Tab
+              icon={<MoreVertIcon />}
+              value="more"
+              onClick={handleMenuOpen}
+              aria-controls={menuOpen ? 'resume-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={menuOpen ? 'true' : undefined}
+            />
           </Tabs>
+          <Menu
+            id="resume-menu"
+            anchorEl={anchorEl}
+            open={menuOpen}
+            onClose={() => handleMenuClose(null)}
+          >
+            {secondaryResumes.map((option) => (
+              <MenuItem
+                key={option.value}
+                onClick={() => handleMenuClose(option.value)}
+              >
+                {option.label}
+              </MenuItem>
+            ))}
+          </Menu>
         </Box>
 
         {/* Resume Viewer */}

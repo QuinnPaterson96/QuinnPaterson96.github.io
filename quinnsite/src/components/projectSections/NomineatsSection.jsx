@@ -39,6 +39,63 @@ const NomineatsSection = () => {
                 If you’d like to see more or explore the live app:
             </Typography>
 
+            <Typography variant="h5" sx={{ mb: 2 }}>
+                      Explore Nomineats
+                    </Typography>
+            
+                    <Box sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}>
+                      <Link
+                        href="https://www.nomineats.com"
+                        target="_blank"
+                        rel="noopener"
+                        underline="none"
+                        sx={{
+                          display: 'flex',
+                          flexDirection: 'row',
+                          alignItems: 'center',
+                          width: '100%',
+                          maxWidth: 600,
+                          p: 2,
+                          border: '1px solid #ddd',
+                          borderRadius: '12px',
+                          textDecoration: 'none',
+                          boxShadow: '0px 2px 6px rgba(0,0,0,0.1)',
+                          transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                          '&:hover': {
+                            transform: 'translateY(-3px)',
+                            boxShadow: '0px 4px 12px rgba(0,0,0,0.15)',
+                          },
+                        }}
+                      >
+                        <img
+                          src="/images/nomineats/top-resturants.png"
+                          alt="Nomineats preview"
+                          style={{
+                            width: 120,
+                            height: 80,
+                            objectFit: 'cover',
+                            borderRadius: '8px',
+                            marginRight: '1rem',
+                          }}
+                        />
+                        <Box sx={{ flex: 1 }}>
+                          <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 0.5 }}>
+                            Nomineats
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary">
+                            Restaurant reviews reimagined — only your top 3 per city, with postcards to share your journey.
+                          </Typography>
+                          <Typography
+                            variant="caption"
+                            color="primary"
+                            sx={{ display: 'block', mt: 0.5 }}
+                          >
+                            www.nomineats.com →
+                          </Typography>
+                        </Box>
+                      </Link>
+                    </Box>
+
             <Link
                 href="/#/Nomineats"
                 rel="noopener"
@@ -49,7 +106,7 @@ const NomineatsSection = () => {
                     whiteSpace: 'normal',
                 }}
             >
-                Nomineats Project Page
+                Read more about it as a project on its own page →
             </Link>
         </Box>
     );
